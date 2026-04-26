@@ -1,0 +1,17 @@
+{
+  "name": "glorb-webcam",
+  "version": "0.1.0",
+  "description": "macOS menu bar Pomodoro timer with webcam focus detection",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "node scripts/setup.js"
+  },
+  "devDependencies": {
+    "electron": "^29.0.0"
+  },
+  "dependencies": {
+    "electron-store": "^8.2.0",
+    "face-api.js": "^0.22.2"
+  }
+}
