@@ -1,0 +1,49 @@
+{
+  "name": "glorb-webcam",
+  "version": "0.1.0",
+  "description": "macOS menu bar Pomodoro timer with webcam focus detection",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "node scripts/setup.js",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "dependencies": {
+    "electron-store": "^8.2.0",
+    "face-api.js": "^0.22.2"
+  },
+  "build": {
+    "appId": "com.glorb.app",
+    "productName": "Glorb",
+    "files": [
+      "**/*",
+      "!scripts/**",
+      "!dist/**",
+      "!*.md"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "icon": "glorb.png",
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.inherit.plist",
+      "extendInfo": {
+        "NSCameraUsageDescription": "Glorb uses your camera to detect when you lose focus during a session."
+      },
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "universal"
+          ]
+        }
+      ]
+    },
+    "dmg": {
+      "title": "Glorb"
+    }
+  }
+}
